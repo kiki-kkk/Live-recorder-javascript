@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Live recorder</title>
+  <script src="js/jquery-2.1.3.min.js"></script>
+  <link rel="stylesheet" href="css/sample.css">
+</head>
+
+<body>
+  <header>
+    <h1>Live Recorder</h1>
+  </header>
+
+  <main>
+    <!-- お手本ではkeyの部分を自分はartist
+    に変えている！！忘れない！ -->
+
+ <!-- <main>
+//     <div class="titleBox">
+//         <span>タイトル:</span>
+//         <input type='text' name='' id='title'>
+//     </div>
+//     < このしたも行うようならこれでいけます↓ -->
+   <!-- <div class='textBox'>
+  //       <span>テキスト:</span>
+  //       <textarea id=''></textarea>
+  //     </div>
+  //   </main> --> 
+  
+<!-- 高橋さんの場合
+  <main style="display: none;">
+    <div class="titleBOX">
+        <span>タイトル：</span>
+        <input type="text" neme="" id="title">   タイトルと書いてある１行テキストをつくりたい -->
+    <!-- </div> -->
+    <div class="titleBOX">
+    <span>Artist</span></span>
+    <input type="text" id="artist">
+
+    <div class="titleBOX">
+      <span>Title</span></span>
+      <input type="text" id="title">
+
+    <div class="titleBOX">
+      <span>Date</span></span>
+    <input type2="text" id="date">
+  </div>
+
+  <div class="titleBOX"></div>
+  <span>Place</span></span>
+    <textarea id="place"></textarea>
+     </div>
+
+
+
+    <ul>
+      <li id="Record">Record</li>
+      <li id="Clear">Clear</li>
+    </ul>
+  </main>
+
+  <ul id="list">
+    <!-- ここに追加データが挿入される -->
+  </ul>
+
+
+  <script>
+
+    //1.Save クリックイベント
+    
+    $("#Record").on("click", function () {
+
+      // val()で値を取得するーおまじない
+      // constは変数
+      const artist = $("#artist").val();
+      const title = $("#title").val();
+      const date = $("#date").val();
+      const place = $("#place").val();
+      // html側で入力されたデータを取得して確認
+      // 変数の中身を確認、動作確認
+      // consoleは箱の中身が確認できるおまじない
+      console.log(artist);
+      console.log(title);
+      console.log(date);
+      console.log(place);
+      // データを保存する
+      // key は const keyの$("#key").val()
+      // value は const valueの$("#memo").val();
+      // localStorage.setItem(artist,date,place);
+　　　//一覧表示に追加
+
+
+// <!-- 森田先生のタイトルのやつ -->
+//  
+
+　　　const html = `
+      <li>
+      <p class="savespanp">
+       <span class="savespan">${artist}</span>
+       <span class="savespan">${title}</span>
+        <span class="savespan">${date}</span>
+        <span class="savespan">${place}</span>
+      </li>`
+      //変数に格納したデータをhtmlに追加
+      
+      $("#list").append(html);
+　　　　//この部分が追加
+
+
+
+      //変数に格納したデータをhtmlに追加
+      $("#xxx").append();
+
+
+      // この↓消しちゃダメ
+      
+    });
+
+
+
+
+
+    //2.clear クリックイベント
+    $("#Clear").on('click', function () {
+      // 保存されたデータ（localStorage）を消す
+// 　　　全消しは、clear();
+      // localStorage.clear();
+      // 一つ消しはlocalStorage.removeItem(key aitem);
+      localStorage.removeItem(artist);
+      // localStorage.removeItem("date");
+      // localStorage.removeItem("place");
+      //id="list"を削除する
+      $("#list").empty();
+    });
+
+
+    $("#xxx").empty();
+     
+
+
+    //3.ページ読み込み：保存データ取得表示
+    for (let i = 0; i < localStorage.length; i++) {
+      // 保存されたデータのkeyを取得
+      const key=localStorage.artist(i);
+      // getItemのKeyを使って保存されたデータを全部取得
+      const value=localStorage.getItem(artist);
+      //  const valueの中身をみている
+      console.log(title)
+// 　　　変数を入れる
+      const html = `
+      <li>
+        <span>${artist}</span>
+        <span>${title}</span>
+        <span>${date}</span>
+        <span>${place}</span>
+      </li>`
+      // ブラウザに表示
+    
+      $("#list").append(html);
+    
+    }
+
+
+      const html = ``;
+      // $("#xxx").append(xxx);
+    
+  </script>
+  <footer><small>Next is...</small></footer>
+</body>
+
+</html>
